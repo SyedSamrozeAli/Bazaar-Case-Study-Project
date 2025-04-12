@@ -22,6 +22,35 @@
 
 ---
 
+## 🚀 Evolution Rationale (v1 → v3)
+
+### **V1: Basic MVP**
+- Implemented core models: Product, Store, Sales, Inventory, Supplier.
+- Developed CRUD APIs using Django REST Framework.
+
+**Rationale**: Quickly validate core models and business logic.
+
+---
+
+### **V2: Enhanced Features**
+- Added filtering and nested serializers.
+- Applied request throttling and caching via Redis.
+- Created Faker-based fake data generators.
+- Store-admin based data restriction logic.
+- Authentication implemented
+
+**Rationale**: Improve performance, security, and realism in testing.
+
+---
+
+### **V3: Scalable Architecture**
+- Horizontal scalability ready with modular views and caching.
+- Redis used for product cache.
+- Enhanced API performance with indexes and efficient querysets.
+
+**Rationale**: Move towards a production-ready system by focusing on scalability and async processing.
+
+---
 ## 🤔 Assumptions
 
 - A user with the "store admin" role manages only one store.
