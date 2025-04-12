@@ -1,0 +1,15 @@
+# Ignore virtual environment directory
+venv/
+.venv/
+.env/
+
+# Ignore Python compiled files
+*.pyc
+__pycache__/
+
+# Ignore SQLite database file
+*.sqlite3
+media/
+
+# Ignore sensitive files
+Backend/.env
