@@ -69,6 +69,8 @@
 - **Response**: Paginated list of products.
 - **Throttling**: Enabled
 
+![image](https://github.com/user-attachments/assets/979b400c-ee43-4238-b7b0-b01aee3cae0b)
+
 ### `POST /api/sales/`
 - **Description**: Create a sale record with multiple items.
 - **Request Body**:
@@ -83,6 +85,8 @@
 }
 ```
 - **Response**: Sale confirmation with totals.
+
+![image](https://github.com/user-attachments/assets/4619e945-a7b7-4424-b047-4d4e79ba4f8d)
 
 
 ---
