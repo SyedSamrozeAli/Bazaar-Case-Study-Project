@@ -1,1 +1,89 @@
 # Bazaar-Case-Study-Project
+
+## 🧠 Design Decisions
+
+1. **Modular Architecture**  
+   Django REST Framework is used to structure the project using Models, Serializers, Views, and Permissions. This promotes maintainability and scalability.
+
+2. **Role-Based Access Control**  
+   Store admins can only access their own store’s data. Superusers have access to all records.
+
+3. **Caching with Redis (via Memurai)**  
+   Redis is used to cache frequently accessed data (like products) to reduce DB load and improve performance.
+
+4. **Relational Database (PostgreSQL)**  
+   PostgreSQL is used to handle complex relationships (e.g., Sales → SaleItems → Products).
+
+5. **Throttling & Rate Limiting**  
+   Django REST Framework’s throttling system is used to prevent abuse and ensure fair use.
+
+6. **Filtering and Reporting**  
+   API supports filters on sales and products by store and date range for reporting needs.
+
+---
+
+## 🤔 Assumptions
+
+- A user with the "store admin" role manages only one store.
+- Products are globally stored but inventory is managed per store.
+- A sale is linked to one store and includes multiple sale items.
+- Caching service (Redis via Memurai) is running on `127.0.0.1:6379`.
+- API requires user authentication.
+
+---
+
+## 🔌 API Design
+
+### `GET /api/products/`
+- **Description**: List products. Filtered based on store admin role.
+- **Query Params**: `?ordering=created_at`
+- **Response**: Paginated list of products.
+- **Throttling**: Enabled
+
+### `POST /api/sales/`
+- **Description**: Create a sale record with multiple items.
+- **Request Body**:
+```json
+{
+  "store": 1,
+  "sales_items": [
+    {"product": 5, "quantity": 12},
+    {"product": 2, "quantity": 24}
+  ],
+   "discount":10
+}
+```
+- **Response**: Sale confirmation with totals.
+
+
+---
+
+## 🛡️ Security
+
+- Token-based authentication (JWT).
+- Permissions restrict access based on user roles.
+- Throttling to limit abuse.
+
+---
+
+## 📊 Performance
+
+- Cached endpoints reduce redundant DB queries.
+- PostgreSQL indexing for faster filters (e.g., on `created_at`).
+
+---
+
+
+## 📂 Folder Structure
+
+```
+project/
+│
+├── api/                # App with views, serializers, models
+├── config/             # Project settings
+├── generate_fake_data.py
+├── requirements.txt
+└── README.md
+```
+
+---
