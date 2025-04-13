@@ -102,7 +102,7 @@
 ## 📊 Performance
 
 - Cached endpoints reduce redundant DB queries.
-- PostgreSQL indexing for faster filters (e.g., on `created_at`).
+- PostgreSQL indexing for faster filters.
 
 ---
 
