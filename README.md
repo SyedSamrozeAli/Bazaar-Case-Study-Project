@@ -63,6 +63,8 @@
 
 ## 🔌 API Design
 
+Below are some sample APIs
+
 ### `GET /api/products/`
 - **Description**: List products. Filtered based on store admin role.
 - **Query Params**: `?ordering=created_at`
