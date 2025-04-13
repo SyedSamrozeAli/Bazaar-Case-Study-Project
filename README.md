@@ -65,6 +65,8 @@
 
 Below are some sample APIs
 
+APIS Documentation link [ https://documenter.getpostman.com/view/36394142/2sB2cYeMCL ]
+
 ### `GET /api/products/`
 - **Description**: List products. Filtered based on store admin role.
 - **Query Params**: `?ordering=created_at`
